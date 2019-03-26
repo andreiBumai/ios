@@ -29,9 +29,6 @@
         }
     }
     
-    
-    
-    
     NSNumber *result = [[NSNumber alloc] initWithInt:abs(diag1-diag2)];
     return result;
 }

@@ -11,7 +11,7 @@
     _resulString = @"";
     NSString *tmpString = [[NSString alloc] initWithString:string];
     
-    [tmpString stringByReplacingCharactersInRange:NSMakeRange(0, [string length]) withString:@""];
+    [tmpString stringByReplacingCharactersInRange:NSMakeRange(0, [string length]) withString:@" "];
     
         int rows = floor(sqrt([tmpString length]));
         int columns = ceil(sqrt([tmpString length]));
@@ -22,18 +22,14 @@
     
     for (int i=0; i<columns;i++) {
       
-        
-        if (i==0) {
-//          _resulString = [_resulString stringByAppendingString:@""];
-        } else {
+        if (i!=0) {
             _resulString = [_resulString stringByAppendingString:@" "];
         }
         
         for (int j=0; j<rows; j++) {
                 if (j*columns+i<[tmpString length]) {
-                    int zalup = j*columns+i;
-                    NSString *iCharFromTmpString  = [NSString stringWithFormat:@"%c", [tmpString characterAtIndex:zalup]];
-                    NSLog(@"%@", iCharFromTmpString);
+                    int indexChar = j*columns+i;
+                    NSString *iCharFromTmpString  = [NSString stringWithFormat:@"%c", [tmpString characterAtIndex:indexChar]];
                     _resulString =  [_resulString stringByAppendingString:iCharFromTmpString];
                 }
             }
