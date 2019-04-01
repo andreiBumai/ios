@@ -23,7 +23,9 @@
 - (BOOL)isClone;
 + (instancetype)createWithName:(NSString *)name isClone:(BOOL)clone;
 @end
-@interface MatrixHacker : NSObject
+
+
+@interface MatrixHacker : NSObject 
 /**
  Injects the given block into the Matrix by saving it in the class.
 
