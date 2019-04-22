@@ -23,34 +23,28 @@
     [stringResult appendString:@"["];
     for (int i=0; i<[self count]; i++) {
         if ( [[[self objectAtIndex:i] class] isSubclassOfClass:[NSArray class]]) {
-            NSLog(@"Catch array");
             [stringResult appendString: [[self objectAtIndex:i] print]];
             if (i!=[self indexCount]) {
                 [stringResult appendString:@","];
             }
         } else if ([[[self objectAtIndex:i] class] isSubclassOfClass:[NSNumber class]]) {
-            NSLog(@"Catch number");
             [stringResult appendFormat:@"%@", [self objectAtIndex:i]];
             if (i!=[self indexCount]) {
                 [stringResult appendString:@","];
             }
             NSLog(@"%@",stringResult);
         } else if ([[[self objectAtIndex:i] class] isSubclassOfClass:[NSNull class]]) {
-            NSLog(@"Catch null");
             [stringResult appendString: @"null"];
             if (i!=[self indexCount]) {
                 [stringResult appendString:@","];
             }
             
         }else if ([[[self objectAtIndex:i] class] isSubclassOfClass:[NSString class]]) {
-            NSLog(@"Catch string");
             [stringResult appendFormat:@"\"%@\"", [self objectAtIndex:i]];
             if (i!=[self indexCount]) {
                 [stringResult appendString:@","];
             }
-            NSLog(@"%@",stringResult);
         } else {
-            NSLog(@"Catch unsupported");
             [stringResult appendString: @"unsupported"];
             if (i!=[self indexCount]) {
                 [stringResult appendString:@","];
@@ -58,7 +52,6 @@
         }
     }
     [stringResult appendString:@"]"];
-    NSLog(@"%@", stringResult);
     return stringResult;
 }
 
